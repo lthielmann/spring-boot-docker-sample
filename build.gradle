@@ -12,8 +12,11 @@ buildscript {
 	}
 }
 
+plugins {
+	id 'com.palantir.docker' version '0.13.0'
+}
+
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
@@ -34,6 +37,11 @@ dependencies {
 	testCompile 'io.projectreactor:reactor-test'
 }
 
+docker {
+    name 'lth/reactive-demo-service:0.2'
+    tags 'latest', '0.2'
+}
+
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.1'
+    gradleVersion = '4.2.1'
 }
