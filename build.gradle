@@ -39,7 +39,7 @@ dependencies {
 
 docker {
     name 'lth/reactive-demo-service:0.2'
-    tags 'latest', '0.2'
+    files tasks.bootJar.outputs, 'bin/entrypoint.sh'
 }
 
 task wrapper(type: Wrapper) {

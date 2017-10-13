@@ -5,8 +5,8 @@ LABEL maintainer="lars.thielmann@gmail.com"
 RUN addgroup -S springboot && adduser -S -g springboot springboot
 WORKDIR /app
 
-COPY bin/entrypoint.sh .
-COPY build/libs/*.jar .
+COPY entrypoint.sh .
+COPY *.jar .
 
 RUN chown -R springboot:springboot .
 RUN chmod 0500 entrypoint.sh && chmod 0400 *.jar
